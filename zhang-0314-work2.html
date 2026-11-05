@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>萨克斯社 2026 春季招新 | Saxophone Club</title>
+<meta name="description" content="校园萨克斯社 2026 年春季招新主页：社团简介、活动安排、风采展示、社员故事与在线报名。">
+<style>
+/* ============ 基础与配色 ============ */
+:root{
+  --ink:#0a0910;
+  --ink-2:#11101a;
+  --ink-3:#171623;
+  --gold:#d9a441;
+  --gold-l:#f2cd85;
+  --cream:#f4ece0;
+  --muted:#a99f92;
+  --line:rgba(217,164,65,.22);
+  --serif:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
+  --sans:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--cream);
+  font:16px/1.95 var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:var(--gold-l);text-decoration:none}
+a:hover{color:#fff}
+::selection{background:rgba(217,164,65,.32)}
+
+/* ============ 顶部固定栏 ============ */
+header.site-bar{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:10px clamp(14px,3vw,34px);
+  background:rgba(10,9,16,.72);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(217,164,65,.16);
+}
+.music-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:9px 18px 9px 14px;border-radius:999px;
+  border:1px solid var(--line);color:var(--gold-l);
+  background:linear-gradient(180deg,rgba(217,164,65,.14),rgba(217,164,65,.05));
+  font:600 14px/1 var(--sans);letter-spacing:.04em;cursor:pointer;
+  transition:.28s ease;white-space:nowrap;
+}
+.music-btn:hover{border-color:rgba(217,164,65,.6);box-shadow:0 0 0 3px rgba(217,164,65,.10);color:#fff}
+.music-btn .eq{display:inline-flex;align-items:flex-end;gap:2.5px;height:15px}
+.music-btn .eq i{
+  display:block;width:3px;height:5px;border-radius:2px;
+  background:linear-gradient(180deg,var(--gold-l),var(--gold));
+  transition:height .18s ease;
+}
+.music-btn.is-playing .eq i{animation:bounce .9s ease-in-out infinite}
+.music-btn.is-playing .eq i:nth-child(2){animation-delay:.15s}
+.music-btn.is-playing .eq i:nth-child(3){animation-delay:.3s}
+.music-btn.is-playing .eq i:nth-child(4){animation-delay:.45s}
+@keyframes bounce{0%,100%{height:4px}50%{height:15px}}
+
+nav.main-nav{display:flex;align-items:center;gap:clamp(8px,2vw,26px);flex-wrap:wrap;justify-content:flex-end}
+nav.main-nav a{
+  position:relative;color:var(--muted);font-size:15px;letter-spacing:.06em;
+  padding:4px 2px;transition:color .25s;
+}
+nav.main-nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s;
+}
+nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-l)}
+nav.main-nav a:hover::after,nav.main-nav a.active::after{transform:scaleX(1)}
+
+/* ============ 首屏 ============ */
+.hero{
+  position:relative;min-height:100vh;display:grid;place-items:center;
+  padding:120px 24px 96px;text-align:center;isolation:isolate;
+  background:
+    radial-gradient(1000px 520px at 50% 8%,rgba(217,164,65,.20),transparent 62%),
+    linear-gradient(180deg,rgba(10,9,16,.55) 0%,rgba(10,9,16,.68) 42%,rgba(10,9,16,.86) 76%,var(--ink) 100%),
+    url("sax_club.jpg") center 32%/cover no-repeat;
+}
+.hero::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:180px;z-index:-1;
+  background:linear-gradient(180deg,transparent,var(--ink));
+}
+.hero .kicker{
+  display:inline-block;font-size:13px;letter-spacing:.52em;text-indent:.52em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:22px;
+  padding-bottom:12px;border-bottom:1px solid rgba(217,164,65,.35);
+}
+.hero h1{
+  margin:0;font-family:var(--serif);font-weight:700;color:var(--gold-l);
+  font-size:clamp(56px,12.5vw,142px);line-height:1.02;letter-spacing:.1em;text-indent:.1em;
+  text-shadow:0 18px 60px rgba(0,0,0,.75),0 0 90px rgba(217,164,65,.18);
+}
+.hero .en{
+  margin:20px 0 0;font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(12px,1.6vw,16px);letter-spacing:.42em;text-indent:.42em;
+  color:rgba(244,236,224,.66);text-transform:uppercase;
+}
+.hero p.lead{
+  max-width:660px;margin:34px auto 0;color:rgba(244,236,224,.82);
+  font-size:clamp(15px,1.7vw,18px);line-height:2.1;
+}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 34px;border-radius:999px;font-weight:600;font-size:15px;
+  letter-spacing:.08em;transition:.3s cubic-bezier(.2,.7,.3,1);border:1px solid transparent;
+}
+.btn-gold{
+  color:#1a1206;background:linear-gradient(135deg,var(--gold-l),var(--gold));
+  box-shadow:0 14px 34px -12px rgba(217,164,65,.8);
+}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 20px 44px -12px rgba(217,164,65,.9);color:#1a1206}
+.btn-ghost{color:var(--cream);border-color:rgba(244,236,224,.28);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-l);transform:translateY(-3px)}
+
+.scroll-hint{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  font-size:11px;letter-spacing:.4em;text-indent:.4em;color:rgba(244,236,224,.45);
+}
+.scroll-hint::after{
+  content:"";display:block;width:1px;height:44px;margin:12px auto 0;
+  background:linear-gradient(180deg,var(--gold),transparent);
+  animation:drop 2.2s ease-in-out infinite;
+}
+@keyframes drop{0%,100%{opacity:.2;transform:scaleY(.4)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ============ 通用版式 ============ */
+section{position:relative;padding:clamp(72px,9vw,116px) 0;scroll-margin-top:78px}
+section:nth-of-type(odd){background:linear-gradient(180deg,var(--ink),var(--ink-2))}
+section:nth-of-type(even){background:var(--ink-2)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(18px,4vw,32px)}
+.sec-head{display:flex;align-items:flex-end;gap:20px;margin-bottom:44px;flex-wrap:wrap}
+.sec-head .num{
+  font-family:Georgia,serif;font-size:14px;letter-spacing:.2em;color:var(--gold);
+  padding-bottom:10px;border-bottom:1px solid var(--line);
+}
+.sec-head h2{
+  margin:0;font-family:var(--serif);font-weight:700;line-height:1.25;
+  font-size:clamp(28px,4.4vw,46px);letter-spacing:.05em;
+}
+.sec-head h2 small{
+  display:block;margin-top:10px;font-family:Georgia,serif;font-weight:400;
+  font-size:12px;letter-spacing:.38em;color:rgba(244,236,224,.42);text-transform:uppercase;
+}
+.sec-head::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);margin-bottom:16px}
+
+p{margin:0 0 1.35em}
+.prose{max-width:76ch;color:rgba(244,236,224,.88);font-size:16.5px;line-height:2.15;text-align:justify}
+.prose p:first-child::first-letter{}
+.prose strong{color:var(--gold-l);font-weight:600}
+.prose .h3{
+  font-family:var(--serif);font-size:20px;color:var(--gold-l);
+  margin:2em 0 .7em;letter-spacing:.05em;
+}
+.prose .h3::before{content:"— ";color:rgba(217,164,65,.5)}
+.quote{
+  margin:34px 0;padding:26px 30px;border-left:2px solid var(--gold);
+  background:linear-gradient(90deg,rgba(217,164,65,.10),rgba(217,164,65,.01));
+  color:rgba(244,236,224,.92);font-family:var(--serif);font-size:19px;line-height:2;
+}
+
+/* ============ 简介：数据卡 ============ */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:40px 0 8px}
+.stat{
+  padding:22px 20px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(180deg,rgba(217,164,65,.07),rgba(255,255,255,.015));
+  text-align:center;
+}
+.stat b{display:block;font-family:Georgia,serif;font-size:34px;color:var(--gold-l);line-height:1.2}
+.stat span{font-size:13px;color:var(--muted);letter-spacing:.12em}
+
+/* ============ 活动安排表 ============ */
+.table-scroll{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:var(--ink-3)}
+table.schedule{
+  width:100%;border-collapse:collapse;min-width:680px;font-size:15px;
+}
+table.schedule th,table.schedule td{
+  padding:15px 18px;border-bottom:1px solid rgba(217,164,65,.14);
+  text-align:left;vertical-align:middle;
+}
+table.schedule thead th,table.schedule tr.head-row th{text-align:center;letter-spacing:.14em}
+table.schedule tr.title-row th{
+  font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:.16em;
+  color:var(--gold-l);text-align:center;padding:20px 18px;
+  background:linear-gradient(90deg,rgba(217,164,65,.20),rgba(217,164,65,.06));
+  border-bottom:1px solid rgba(217,164,65,.3);
+}
+table.schedule tr.head-row th{
+  color:var(--gold-l);font-size:14px;background:rgba(217,164,65,.06);
+}
+table.schedule tbody th{font-weight:600;color:var(--cream);letter-spacing:.03em}
+table.schedule tbody tr:hover{background:rgba(217,164,65,.05)}
+table.schedule td.place{color:rgba(244,236,224,.86);border-left:1px solid rgba(217,164,65,.14);
+  border-right:1px solid rgba(217,164,65,.14);background:rgba(217,164,65,.035)}
+table.schedule td.place em{display:block;font-style:normal;font-size:12.5px;color:var(--gold);letter-spacing:.08em;margin-top:4px}
+table.schedule tr.note-row td{
+  text-align:center;color:var(--muted);font-size:13.5px;letter-spacing:.04em;
+  background:rgba(255,255,255,.02);border-bottom:none;
+}
+.tag{
+  display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;
+  border:1px solid var(--line);color:var(--gold-l);margin-left:8px;letter-spacing:.06em;
+}
+
+/* ============ 风采展示 ============ */
+.gallery{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;margin:8px 0 40px;align-items:stretch}
+@media (max-width:760px){.gallery{grid-template-columns:1fr}}
+figure{margin:0;display:flex;flex-direction:column}
+.photo{
+  position:relative;display:block;overflow:hidden;border-radius:16px;flex:1;min-height:260px;
+  border:1px solid var(--line);background:var(--ink-3);
+  box-shadow:0 24px 60px -30px rgba(0,0,0,.9);
+}
+.photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.3,1),filter .5s}
+.photo:hover img{transform:scale(1.06);filter:saturate(1.12)}
+.photo .veil{
+  position:absolute;inset:auto 0 0 0;padding:26px 22px 20px;
+  background:linear-gradient(180deg,transparent,rgba(6,5,10,.9));
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+}
+.photo .veil b{font-family:var(--serif);font-size:17px;letter-spacing:.08em;color:var(--cream)}
+.photo .veil i{
+  font-style:normal;font-size:12px;letter-spacing:.16em;color:var(--gold);
+  border:1px solid var(--line);border-radius:999px;padding:4px 12px;white-space:nowrap;
+}
+figcaption{margin-top:12px;font-size:13px;color:var(--muted);letter-spacing:.04em;line-height:1.8}
+
+.video-block{margin-top:46px}
+.video-block h3{
+  margin:0 0 8px;font-family:var(--serif);font-size:23px;font-weight:700;
+  color:var(--cream);letter-spacing:.06em;
+}
+.video-block p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.video-frame{
+  position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;
+  border-radius:16px;border:1px solid var(--line);background:#000;
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.95);
+}
+.video-frame embed,.video-frame video{display:block;width:100%;height:100%;border:0}
+
+/* ============ 社员故事 ============ */
+.story{
+  position:relative;padding:30px 32px 26px;margin:26px 0;
+  border:1px solid rgba(217,164,65,.16);border-radius:16px;
+  background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.008));
+}
+.story h3{
+  margin:0 0 14px;font-family:var(--serif);font-size:21px;font-weight:700;
+  color:var(--gold-l);letter-spacing:.06em;
+}
+.story h3 span{font-family:Georgia,serif;font-size:13px;color:rgba(217,164,65,.7);margin-right:12px;letter-spacing:.1em}
+.story .byline{font-size:13px;color:var(--muted);letter-spacing:.08em;margin-top:14px;border-top:1px dashed rgba(217,164,65,.18);padding-top:12px}
+.story p{color:rgba(244,236,224,.88);text-align:justify;margin-bottom:1em}
+.story p:last-of-type{margin-bottom:0}
+
+/* ============ 报名表 ============ */
+.form-card{
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(217,164,65,.06),rgba(255,255,255,.012));
+  box-shadow:0 30px 80px -40px rgba(0,0,0,.9);
+}
+.form-card .card-head{
+  padding:24px 28px;border-bottom:1px solid var(--line);
+  background:linear-gradient(90deg,rgba(217,164,65,.14),transparent);
+}
+.form-card .card-head h3{margin:0;font-family:var(--serif);font-size:21px;letter-spacing:.1em;color:var(--gold-l)}
+.form-card .card-head p{margin:8px 0 0;font-size:13.5px;color:var(--muted);letter-spacing:.03em}
+table.form-table{width:100%;border-collapse:collapse;font-size:15px}
+table.form-table th,table.form-table td{
+  padding:16px 24px;border-bottom:1px solid rgba(217,164,65,.12);
+  text-align:left;vertical-align:top;
+}
+table.form-table tr:last-child th,table.form-table tr:last-child td{border-bottom:none}
+table.form-table th{
+  width:190px;font-weight:500;color:var(--gold-l);letter-spacing:.1em;
+  font-size:14.5px;background:rgba(217,164,65,.045);
+  border-right:1px solid rgba(217,164,65,.12);white-space:nowrap;
+}
+table.form-table th em{font-style:normal;color:#e2705f;margin-left:4px}
+input[type=text],select,textarea{
+  width:100%;max-width:100%;padding:10px 14px;border-radius:9px;
+  border:1px solid rgba(244,236,224,.16);background:rgba(0,0,0,.35);
+  color:var(--cream);font:15px/1.6 var(--sans);outline:none;
+  transition:border-color .25s,box-shadow .25s;
+}
+input[type=text]{max-width:460px}
+input[type=text]:focus,select:focus,textarea:focus{
+  border-color:rgba(217,164,65,.65);box-shadow:0 0 0 3px rgba(217,164,65,.14);
+}
+input[type=text]::placeholder,textarea::placeholder{color:rgba(244,236,224,.3)}
+textarea{min-height:140px;resize:vertical;line-height:1.9}
+select{max-width:280px;appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:38px;
+}
+select option{background:#15141d;color:var(--cream)}
+.date-field{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.date-field input[type=text]{max-width:96px;text-align:center}
+.date-field span{color:var(--muted);font-size:14px}
+.radio-group,.check-group{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:6px}
+.radio-group label,.check-group label{
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;color:rgba(244,236,224,.9);
+  font-size:15px;letter-spacing:.02em;transition:color .2s;
+}
+.radio-group label:hover,.check-group label:hover{color:var(--gold-l)}
+input[type=radio],input[type=checkbox]{
+  appearance:none;width:17px;height:17px;margin:0;cursor:pointer;flex:0 0 auto;
+  border:1px solid rgba(244,236,224,.34);background:rgba(0,0,0,.3);
+  transition:.2s;position:relative;
+}
+input[type=radio]{border-radius:50%}
+input[type=checkbox]{border-radius:4px}
+input[type=radio]:checked{border-color:var(--gold);background:radial-gradient(circle,var(--gold) 0 4.5px,transparent 5px)}
+input[type=checkbox]:checked{border-color:var(--gold);background:var(--gold)}
+input[type=checkbox]:checked::after{
+  content:"";position:absolute;left:5px;top:1.5px;width:4px;height:9px;
+  border:solid #1a1206;border-width:0 2px 2px 0;transform:rotate(45deg);
+}
+.form-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:26px}
+input[type=submit],input[type=reset]{
+  appearance:none;cursor:pointer;border-radius:999px;padding:14px 40px;
+  font:600 15px/1 var(--sans);letter-spacing:.14em;transition:.3s;border:1px solid transparent;
+}
+input[type=submit]{color:#1a1206;background:linear-gradient(135deg,var(--gold-l),var(--gold));box-shadow:0 14px 34px -12px rgba(217,164,65,.75)}
+input[type=submit]:hover{transform:translateY(-2px);box-shadow:0 20px 44px -12px rgba(217,164,65,.9)}
+input[type=reset]{color:var(--cream);background:transparent;border-color:rgba(244,236,224,.26)}
+input[type=reset]:hover{border-color:var(--gold);color:var(--gold-l)}
+.form-tip{font-size:13px;color:var(--muted);letter-spacing:.03em;margin-top:20px;line-height:1.9}
+
+/* ============ 返回顶部 ============ */
+.back-top{
+  display:inline-flex;align-items:center;gap:8px;margin-top:38px;
+  padding:10px 20px;border-radius:999px;border:1px solid var(--line);
+  color:var(--gold-l);font-size:13.5px;letter-spacing:.14em;
+  background:rgba(217,164,65,.05);transition:.28s;
+}
+.back-top:hover{background:rgba(217,164,65,.16);border-color:rgba(217,164,65,.55);transform:translateY(-2px)}
+.back-top::before{content:"↑";font-size:14px}
+#toTop{
+  position:fixed;right:26px;bottom:26px;z-index:120;width:50px;height:50px;
+  display:grid;place-items:center;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(217,164,65,.4);background:rgba(17,16,26,.86);
+  color:var(--gold-l);font-size:18px;backdrop-filter:blur(8px);
+  opacity:0;visibility:hidden;transform:translateY(14px);transition:.35s;
+}
+#toTop.show{opacity:1;visibility:visible;transform:none}
+#toTop:hover{background:rgba(217,164,65,.22);color:#fff}
+
+/* ============ 页脚 ============ */
+footer{
+  padding:60px 0 54px;border-top:1px solid rgba(217,164,65,.14);
+  background:var(--ink);text-align:center;
+}
+footer .brand{font-family:var(--serif);font-size:20px;letter-spacing:.3em;color:var(--gold-l);margin-bottom:14px}
+footer p{margin:0 0 8px;font-size:13px;color:var(--muted);letter-spacing:.04em}
+footer .credits{max-width:760px;margin:22px auto 0;font-size:12px;line-height:2;color:rgba(169,159,146,.62)}
+footer .credits a{color:rgba(217,164,65,.8);text-decoration:underline;text-underline-offset:3px}
+
+/* ============ 提示条 ============ */
+#toast{
+  position:fixed;left:50%;bottom:44px;transform:translate(-50%,26px);z-index:200;
+  padding:14px 28px;border-radius:999px;font-size:14.5px;letter-spacing:.06em;
+  background:rgba(217,164,65,.96);color:#1a1206;font-weight:600;
+  opacity:0;visibility:hidden;transition:.4s cubic-bezier(.2,.7,.3,1);
+  box-shadow:0 20px 50px -18px rgba(0,0,0,.9);max-width:88vw;text-align:center;
+}
+#toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+/* ============ 入场动画（由脚本添加，无脚本时内容直接可见） ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:720px){
+  header.site-bar{padding:8px 12px;gap:6px}
+  .music-btn{padding:8px 12px 8px 9px;font-size:13px}
+  .music-btn .txt{display:none}
+  nav.main-nav{
+    flex-wrap:nowrap;overflow-x:auto;gap:9px;flex:1;justify-content:flex-start;
+    padding-bottom:2px;scrollbar-width:none;
+  }
+  nav.main-nav::-webkit-scrollbar{display:none}
+  nav.main-nav a{font-size:12px;letter-spacing:0;white-space:nowrap}
+  nav.main-nav a::after{display:none}
+  .hero .kicker{font-size:11px;letter-spacing:.28em;text-indent:.28em}
+  table.form-table th{width:104px;padding:12px 14px;white-space:normal;font-size:13.5px}
+  table.form-table th,table.form-table td{padding:13px 14px}
+  .story{padding:24px 20px}
+  .hero{padding:104px 18px 84px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ================= 顶部栏：左侧背景音乐按钮 + 右侧五个锚点链接 ================= -->
+<header class="site-bar">
+  <button id="musicBtn" class="music-btn" type="button" aria-pressed="false" title="点击播放 / 暂停社团主题曲">
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="txt">播放社团主题曲</span>
+  </button>
+  <nav class="main-nav">
+    <a href="#intro">社团简介</a>
+    <a href="#activities">活动安排</a>
+    <a href="#show">风采展示</a>
+    <a href="#stories">社员故事</a>
+    <a href="#signup">在线报名</a>
+  </nav>
+</header>
+
+<!-- 背景音乐：循环播放，由左上角按钮控制 -->
+<audio id="bgm" src="bgm.mp3" loop="loop" preload="auto"></audio>
+
+<!-- ================= 首屏 ================= -->
+<div class="hero">
+  <div>
+    <span class="kicker">Saxophone Club · 2026 Spring</span>
+    <h1>萨克斯社</h1>
+    <p class="en">Let the Night Swing · 春季招新</p>
+    <p class="lead">
+      一支萨克斯，一段属于你的夜晚。这里有零基础的第一次长音，也有舞台上的第一段即兴；
+      有排练厅里反复打磨的乐句，也有一群人把灯关掉、只为听清彼此呼吸的默契。
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#signup">立即报名</a>
+      <a class="btn btn-ghost" href="#intro">了解社团</a>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- ================= 一、社团简介 ================= -->
+<section id="intro">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="num">01</span>
+      <h2>社团简介<small>About Us</small></h2>
+    </div>
+
+    <div class="prose" data-reveal>
+      <p>
+        萨克斯社成立于 2013 年秋天，最初只是六位同学在旧琴房里的一次即兴合奏——那天晚上停电，
+        有人点起了手机的手电筒，一支中音萨克斯在黑暗里吹完了整段《Autumn Leaves》。
+        第二天，这六个人在琴房门口贴了一张手写的招新启事，萨克斯社就这样开始了。
+        十二年过去，我们从走廊里凑不齐声部的“临时乐队”，成长为校艺术团下属、
+        拥有三十余名在册社员、覆盖<strong>高音、中音、次中音、低音</strong>四个声部的完整萨克斯编制，
+        也是全校唯一一支以萨克斯声部为核心的独立器乐社团。
+      </p>
+      <p>
+        很多人第一次听说萨克斯，会觉得它“门槛高、声音吵、学费贵”。这三件事，我们一件一件地拆掉了。
+        社团现有十余支公用乐器，涵盖中音与次中音两个最常用的声部，新社员可以免费借用一整个学期，
+        只需要自己准备一片哨片和一盒润喉糖。我们实行“老带新”的一对一帮带制度：
+        每位新成员入学第一周就会被分配给一位声部长，从站姿、口型、气息开始，
+        到第一个稳定的长音、第一条完整的音阶、第一首能吹给别人听的曲子。
+        过去几年里，绝大多数零基础的同学在<strong>三个月左右</strong>就能完整吹下一首慢板，
+        一个学期之后可以进入声部合排。我们从不要求你在入社之前就会吹萨克斯，
+        只要求你愿意每周出现两次，愿意在吹不响的时候再试一次。
+      </p>
+      <p>
+        排练之外，我们真正在做的事情是“把音乐变成可以分享的东西”。社团每年固定排演两套曲目：
+        一套是爵士方向的标准曲与 Bossa Nova，从《Take Five》《Blue Bossa》到我们自己改编的校园版；
+        另一套是流行与影视配乐的改编，把大家熟悉的旋律拆成四个声部重新分配，
+        让每个人都能在合奏里找到自己的那一句。我们不追求“吹得最快”，
+        更在意一句旋律有没有被吹得干净、有没有把呼吸留给下一个人。
+        这种近乎固执的讲究，后来变成了社团最珍视的传统。
+      </p>
+      <p>
+        社团的活动空间在学生活动中心三楼。推开门，你会看到谱架、地毯、一台总是有点走音的立式钢琴，
+        和墙上贴满的历年演出票根。每周三晚上是分声部小课，周日晚上是全团合排；
+        考试周我们会把排练改成“自习+轻音乐”，谁都可以带着书来，坐在角落里听别人吹。
+        每年六月，社团会为毕业的社员办一场送别音乐会，最后一个人吹完最后一个音，
+        所有人一起把谱架合上——这是我们延续了十二年的仪式。
+      </p>
+      <p>
+        如果你会一点萨克斯，这里有能和你对话的声部；如果你完全不会，这里有愿意从第一个音教起的人；
+        如果你只是喜欢听，我们也欢迎你以“乐务”的身份加入，帮忙写谱、调音、拍视频、做海报。
+        音乐不分专业，也不分年级。我们要找的从来不是“已经很厉害的人”，
+        而是<strong>愿意为一件事认真两个学期的人</strong>。
+      </p>
+    </div>
+
+    <div class="stats" data-reveal>
+      <div class="stat"><b>2013</b><span>成立年份</span></div>
+      <div class="stat"><b>32</b><span>在册社员</span></div>
+      <div class="stat"><b>4</b><span>声部编制</span></div>
+      <div class="stat"><b>12</b><span>公用乐器</span></div>
+      <div class="stat"><b>40+</b><span>年均演出</span></div>
+    </div>
+
+    <a class="back-top" href="#top" data-reveal>返回顶部</a>
+  </div>
+</section>
+
+<!-- ================= 二、活动安排 ================= -->
+<section id="activities">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="num">02</span>
+      <h2>本学期主要活动安排<small>Schedule</small></h2>
+    </div>
+
+    <div class="prose" data-reveal>
+      <p>
+        新学期的安排围绕一条主线展开：<strong>见面 — 入门 — 合排 — 登台</strong>。
+        三月我们把新成员接进来，用一场见面会和一次公开课把“怎么吹”变成“敢吹”；
+        四月开始进入曲目排练，把零散的个人练习拼成四个声部；五月走出排练厅，
+        用一次快闪把音乐放到人群里；六月用一场汇报音乐会，为这个学期收尾。
+        所有活动都安排在大家的空闲时段，尽量避开期中、期末的考试周，
+        也尽量不占用周末完整的白天——我们知道，社团不该是学业的敌人。
+      </p>
+    </div>
+
+    <div class="table-scroll" data-reveal>
+      <table class="schedule">
+        <tr class="title-row">
+          <th colspan="4">萨克斯社 2026 年春季学期活动安排表</th>
+        </tr>
+        <tr class="head-row">
+          <th scope="col">活动名称</th>
+          <th scope="col">活动时间</th>
+          <th scope="col">活动地点</th>
+          <th scope="col">负责人</th>
+        </tr>
+        <tr>
+          <th scope="row">新成员见面会<span class="tag">迎新</span></th>
+          <td>3 月第 2 周 周五 19:00</td>
+          <td class="place" rowspan="2">学生活动中心 音乐厅 A-201<em>以下两场在同一间教室举行</em></td>
+          <td>张景辉</td>
+        </tr>
+        <tr>
+          <th scope="row">萨克斯基础教学公开课<span class="tag">零基础</span></th>
+          <td>3 月第 3 周 周六 15:00</td>
+          <td>李沐阳</td>
+        </tr>
+        <tr>
+          <th scope="row">声部合排（每周固定）</th>
+          <td>每周三 19:00 — 21:00</td>
+          <td class="place">学生活动中心 排练厅 302</td>
+          <td>各声部长</td>
+        </tr>
+        <tr>
+          <th scope="row">金色号角·春季专场音乐会</th>
+          <td>4 月第 2 周 周六 19:30</td>
+          <td class="place">大学生活动中心 大礼堂</td>
+          <td>王梓涵</td>
+        </tr>
+        <tr>
+          <th scope="row">校园开放日快闪演出</th>
+          <td>5 月第 1 周 周三 12:20</td>
+          <td class="place">图书馆前广场</td>
+          <td>陈叙</td>
+        </tr>
+        <tr>
+          <th scope="row">期末汇报暨毕业生送别会</th>
+          <td>6 月第 1 周 周日 19:00</td>
+          <td class="place">学生活动中心 音乐厅 A-201</td>
+          <td>全体声部长</td>
+        </tr>
+        <tr class="note-row">
+          <td colspan="4">备注：以上时间如遇学校统一安排将作微调，最新通知请以社团群公告为准；所有活动对社员免费。</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="prose" data-reveal style="margin-top:34px">
+      <p>
+        除表中的固定安排，每周二、周四晚排练厅对社员开放，可以自行约琴房加练；
+        社里还留出每月一次的“自由曲目夜”，谁想吹什么就报上来，由声部长临时配器。
+        这些不在表格里的时间，往往才是社团最有生命力的部分——有人在这里第一次吹准了高音，
+        有人在这里把一段即兴改了十七遍，也有人只是坐在旁边听完了一整张专辑。
+      </p>
+    </div>
+
+    <a class="back-top" href="#top" data-reveal>返回顶部</a>
+  </div>
+</section>
+
+<!-- ================= 三、风采展示 ================= -->
+<section id="show">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="num">03</span>
+      <h2>风采展示<small>Gallery</small></h2>
+    </div>
+
+    <div class="prose" data-reveal>
+      <p>
+        舞台上的四支萨克斯，站位是排练时就定好的：高音在最左，中音两支居中，次中音在最右。
+        灯光打下来的时候，金黄色的管身在黑暗里连成一条线，像一支小小的乐队。
+        我们喜欢这种“整齐里的不同”——四个人吹同一段和声，却各自有各自的呼吸、各自的音色、
+        各自对一句旋律的理解。下面这张照片拍摄于上学期“冬日之声”专场，
+        那天台下坐满了人，返场时全场合唱了《月亮代表我的心》，萨克斯只是轻轻地垫在下面。
+      </p>
+    </div>
+
+    <div class="gallery" data-reveal>
+      <figure>
+        <a class="photo" href="club_intro.html" title="点击图片查看社团活动详细介绍">
+          <img src="sax_club.jpg" alt="萨克斯社四重奏在校园音乐会上演奏，舞台灯光下的萨克斯声部">
+          <span class="veil"><b>“冬日之声”专场现场</b><i>点击查看详情 →</i></span>
+        </a>
+        <figcaption>点击图片可进入《社团活动介绍》页面（club_intro.html），那里有更完整的曲目单与幕后故事。</figcaption>
+      </figure>
+      <figure>
+        <a class="photo" href="club_intro.html" title="点击图片查看社团活动详细介绍">
+          <img src="sax_stage.jpg" alt="萨克斯社成员在小型Live House演出，男女社员同台演奏">
+          <span class="veil"><b>城中爵士小酒馆快闪</b><i>合影留念</i></span>
+        </a>
+        <figcaption>去年冬天，我们带着两支中音、一支次中音去城中的小酒馆做了一场不插电演出。</figcaption>
+      </figure>
+    </div>
+
+    <div class="video-block" data-reveal>
+      <h3>社团宣传片 ·《一支萨克斯的夜晚》</h3>
+      <p>由社员用专场照片剪辑而成，片长约 9 秒。建议佩戴耳机观看。</p>
+      <div class="video-frame">
+        <embed src="sax_club_video.mp4" type="video/mp4" width="100%" height="100%" loop="true" autostart="false" />
+      </div>
+    </div>
+
+    <a class="back-top" href="#top" data-reveal>返回顶部</a>
+  </div>
+</section>
+
+<!-- ================= 四、社员故事 ================= -->
+<section id="stories">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="num">04</span>
+      <h2>社员故事<small>Their Stories</small></h2>
+    </div>
+
+    <div class="prose" data-reveal>
+      <p>
+        一个社团到底是什么样子，写在章程里的是规定，写在人身上的才是生活。
+        下面这三段故事来自社里的三位成员，他们入社的时间不同、起点不同，
+        但都在同一间排练厅里，找到了自己留下的理由。
+      </p>
+    </div>
+
+    <article class="story" data-reveal>
+      <h3><span>01</span>从吹不响到吹完整一首歌</h3>
+      <p>
+        林知远是大二才加入社团的。第一次来排练厅，他站在门口听了十分钟，转身就想走——
+        里面四个人正在合一段 Bossa Nova，节奏松得像在聊天，他觉得自己一辈子也吹不出来。
+        是当时的声部长把他拉进来的，递给他一支中音萨克斯，说：“先别管曲子，把它吹响。”
+        那天晚上他吹了四十分钟，只吹响了三声，喉咙发紧，嘴唇被哨片磨出一道印子。
+      </p>
+      <p>
+        接下来的两个月，他每天晚自习后去琴房练半小时长音。社团的“老带新”让他每周有两次被纠正口型的机会，
+        声部长会用手机录下他吹的音，让他自己听“气是不是断的”“尾巴是不是抖的”。
+        进步慢得让人沮丧：别人已经在合排《Blue Bossa》，他还在和一条音阶较劲。
+        但第三个月的某天晚上，他在琴房里第一次完整吹下了《月亮代表我的心》，
+        没有断气，没有破音，最后一个音稳稳地落了四拍。他说那一刻他把萨克斯放下，坐在椅子上发了很久的呆。
+      </p>
+      <p>
+        那年冬天的新年晚会上，他站在第四排，吹的是和声里最不起眼的一个声部。
+        灯亮起来的时候他手在抖，但吹到第二小节就不抖了——因为旁边的学长一直在用脚轻轻打拍子。
+        演出结束，台下有人喊他的名字。他说，那是他上大学以来第一次觉得，
+        自己不是坐在观众席里的人。
+      </p>
+      <div class="byline">林知远 · 计算机学院 2024 级 · 中音萨克斯</div>
+    </article>
+
+    <article class="story" data-reveal>
+      <h3><span>02</span>在合奏里学会听别人</h3>
+      <p>
+        周雨桐入社前学了六年钢琴，识谱快、手指灵活，第一次合排就被夸“音准好”。
+        但她很快遇到了麻烦：独奏时她习惯把旋律吹得很满，一到四重奏，四个人的声音就糊在一起，
+        排练屡屡被打断。声部长没有批评她，只是让她在最右边站着，先不吹，只听另外三个人合一遍。
+      </p>
+      <p>
+        “那是我第一次真正听别人。”她说。她发现高音声部有一句旋律是需要被“托”起来的，
+        而她之前一直用同样的力度压过去；她发现次中音在第三段有一个很轻的装饰音，
+        如果她吹得太响，那个音就会被吃掉。合奏不是四个人同时演奏，
+        而是四个人轮流把音乐交到对方手里。这个道理说起来简单，她花了整整一个学期才做到。
+      </p>
+      <p>
+        现在她是社里的高音声部长。每次带新社员，她都会先让对方听一段四重奏的录音，
+        然后问：“你听到几个人在说话？”如果对方说“一个”，她就会笑，
+        说：“那你再听一遍，把每个人的呼吸都听出来。”
+      </p>
+      <div class="byline">周雨桐 · 外国语学院 2023 级 · 高音萨克斯</div>
+    </article>
+
+    <article class="story" data-reveal>
+      <h3><span>03</span>把谱架合上的那个晚上</h3>
+      <p>
+        陈叙在社里待了四年，从新社员做到社长，经历过社团最难的一年：排练厅被临时征用、
+        社员只剩九个人、专场音乐会的场地申请被驳回了两次。那年冬天，他们把演出搬到了图书馆前的广场上，
+        借了两盏灯、一块地毯，在没有暖气的风里吹了四十分钟，围观的人从十几个变成了两百多个。
+      </p>
+      <p>
+        “那天我才明白，我们不是在等一个舞台，我们自己就是舞台。”他说。
+        毕业前的最后一场送别音乐会，他吹的是《What a Wonderful World》的第一句，
+        吹到一半就吹不下去了，台下的人替他把旋律哼完了。
+      </p>
+      <p>
+        现在他偶尔还会回排练厅，坐在最后一排听新社员合排。他说他最喜欢的声音不是演出时的掌声，
+        而是排练结束、大家把谱架一个个合上的“咔哒”声——那意味着一群人又一起认真地过完了一个晚上。
+        他把这句话留给了新一届的社员：<strong>“你们会有很多个晚上，但这样的晚上不会太多。”</strong>
+      </p>
+      <div class="byline">陈叙 · 2022 届毕业生 · 次中音萨克斯 · 前任社长</div>
+    </article>
+
+    <div class="quote" data-reveal>
+      音乐不会让你变得更厉害，但它会让你在某个很普通的晚上，忽然觉得这一天值得。
+    </div>
+
+    <a class="back-top" href="#top" data-reveal>返回顶部</a>
+  </div>
+</section>
+
+<!-- ================= 五、在线报名 ================= -->
+<section id="signup">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="num">05</span>
+      <h2>萨克斯社在线报名表<small>Join Us</small></h2>
+    </div>
+
+    <div class="prose" data-reveal>
+      <p>
+        请如实填写以下信息，方便我们在见面会之前与你联系。所有信息仅用于社团招新，
+        不会对外公开。填写完成后点击“提交报名”，我们会在三个工作日内通过短信或邮件回复你，
+        并告知见面会的具体分组。
+      </p>
+    </div>
+
+    <div class="form-card" data-reveal>
+      <div class="card-head">
+        <h3>2026 春季招新 · 报名信息</h3>
+        <p>带 <em style="color:#e2705f">*</em> 的为必填项；没有基础也完全没关系，请放心填写。</p>
+      </div>
+      <form id="joinForm" action="#" method="post" novalidate>
+        <table class="form-table">
+          <tr>
+            <th scope="row">① 姓名<em>*</em></th>
+            <td><input type="text" name="name" placeholder="请填写真实姓名" required></td>
+          </tr>
+          <tr>
+            <th scope="row">② 性别</th>
+            <td>
+              <div class="radio-group">
+                <label><input type="radio" name="gender" value="男" checked> 男</label>
+                <label><input type="radio" name="gender" value="女"> 女</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">③ 出生日期</th>
+            <td>
+              <div class="date-field">
+                <input type="text" name="year" size="4" maxlength="4" placeholder="2006"> <span>年</span>
+                <input type="text" name="month" size="2" maxlength="2" placeholder="05"> <span>月</span>
+                <input type="text" name="day" size="2" maxlength="2" placeholder="18"> <span>日</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">④ 手机 / 邮箱<em>*</em></th>
+            <td>
+              <div class="date-field">
+                <input type="text" name="phone" maxlength="11" placeholder="11 位手机号" style="max-width:190px" required>
+                <span style="color:rgba(169,159,146,.7)">／</span>
+                <input type="text" name="email" placeholder="常用邮箱" style="max-width:260px">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">⑤ 是否有萨克斯基础</th>
+            <td>
+              <div class="radio-group">
+                <label><input type="radio" name="base" value="零基础" checked> 零基础</label>
+                <label><input type="radio" name="base" value="会一点"> 会一点，能吹简单旋律</label>
+                <label><input type="radio" name="base" value="有较好基础"> 有较好基础，能独立演奏</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">⑥ 兴趣方向（可多选）</th>
+            <td>
+              <div class="check-group">
+                <label><input type="checkbox" name="interest" value="爵士即兴"> 爵士即兴</label>
+                <label><input type="checkbox" name="interest" value="流行改编"> 流行改编</label>
+                <label><input type="checkbox" name="interest" value="古典重奏"> 古典重奏</label>
+                <label><input type="checkbox" name="interest" value="乐队合奏"> 乐队合奏</label>
+                <label><input type="checkbox" name="interest" value="编曲与录音"> 编曲与录音</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">⑦ 年级</th>
+            <td>
+              <select name="grade">
+                <option value="大一" selected>大一</option>
+                <option value="大二">大二</option>
+                <option value="大三">大三</option>
+                <option value="大四">大四</option>
+                <option value="研究生">研究生</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">⑧ 自我介绍</th>
+            <td>
+              <textarea name="intro" rows="6" placeholder="请简单介绍自己、以及加入萨克斯社的理由……"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">⑨ 是否服从活动安排</th>
+            <td>
+              <div class="radio-group">
+                <label><input type="radio" name="obey" value="是" checked> 是，可以按时参加排练与演出</label>
+                <label><input type="radio" name="obey" value="否"> 否，时间需要再协调</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">⑩ 提交操作</th>
+            <td>
+              <div class="form-actions">
+                <input type="submit" value="提交报名">
+                <input type="reset" value="重新填写">
+              </div>
+              <p class="form-tip">提交后如需修改，可重新填写并提交最新一份，我们会以最后一次提交为准。</p>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <a class="back-top" href="#top" data-reveal>返回顶部</a>
+  </div>
+</section>
+
+<!-- ================= 页脚 ================= -->
+<footer>
+  <div class="wrap">
+    <div class="brand">萨克斯社 · SAXOPHONE CLUB</div>
+    <p>学生活动中心三楼 · 每周三 / 周日晚排练 · 邮箱：saxclub@example.edu.cn</p>
+    <p>© 2026 校园萨克斯社 · 本页面为网页设计课程作业（work2）</p>
+    <div class="credits">
+      图片：Saxofour 2008（公有领域）、Shotgun Jazz Band at the Spotted Cat（CC BY 2.0，摄影 Bart Everson），
+      均来自 Wikimedia Commons；音乐：《Main Stem》美国陆军蓝调乐团（CC0）；视频由社员照片剪辑生成。
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="返回顶部">↑</button>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- 1. 背景音乐：点击左上角按钮播放 / 暂停 ---------- */
+  var audio = document.getElementById("bgm");
+  var musicBtn = document.getElementById("musicBtn");
+  var toastEl = document.getElementById("toast");
+  var toastTimer = null;
+
+  function toast(msg) {
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove("show"); }, 2600);
+  }
+
+  audio.volume = 0.5;
+
+  function setPlaying(on) {
+    musicBtn.classList.toggle("is-playing", on);
+    musicBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    musicBtn.querySelector(".txt").textContent = on ? "暂停社团主题曲" : "播放社团主题曲";
+  }
+
+  musicBtn.addEventListener("click", function () {
+    if (audio.paused) {
+      audio.play().then(function () {
+        setPlaying(true);
+        toast("♪ 正在播放《Main Stem》");
+      }).catch(function () {
+        toast("音频加载失败，请确认 bgm.mp3 与本页面在同一目录");
+      });
+    } else {
+      audio.pause();
+      setPlaying(false);
+    }
+  });
+
+  audio.addEventListener("play", function () { setPlaying(true); });
+  audio.addEventListener("pause", function () { setPlaying(false); });
+
+  /* ---------- 2. 滚动：返回顶部按钮 + 导航高亮 ---------- */
+  var toTop = document.getElementById("toTop");
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".main-nav a"));
+  var sections = navLinks.map(function (a) {
+    return document.querySelector(a.getAttribute("href"));
+  });
+
+  function onScroll() {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    toTop.classList.toggle("show", y > 620);
+
+    var current = -1;
+    sections.forEach(function (sec, i) {
+      if (sec && sec.offsetTop - 140 <= y) current = i;
+    });
+    navLinks.forEach(function (a, i) { a.classList.toggle("active", i === current); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (history.replaceState) history.replaceState(null, "", "#top");
+  });
+
+  /* ---------- 3. 元素入场动画（不支持时内容照常显示） ---------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+  if ("IntersectionObserver" in window) {
+    revealEls.forEach(function (el) { el.classList.add("reveal"); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -6% 0px" });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- 4. 报名表：静态页面无后端，提交时做校验与提示 ---------- */
+  var form = document.getElementById("joinForm");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = form.elements["name"].value.trim();
+    var phone = form.elements["phone"].value.trim();
+    if (!name) { toast("请先填写姓名"); form.elements["name"].focus(); return; }
+    if (!/^1\d{10}$/.test(phone)) { toast("请填写 11 位手机号码"); form.elements["phone"].focus(); return; }
+    toast("报名成功！" + name + "，我们三个工作日内联系你 ♪");
+    form.reset();
+  });
+
+  /* ---------- 5. webkit 下 embed 兜底：无法内联播放时替换为 video 标签 ---------- */
+  var frame = document.querySelector(".video-frame");
+  var embedEl = frame ? frame.querySelector("embed") : null;
+  if (embedEl && !("plugins" in navigator)) {
+    var v = document.createElement("video");
+    v.src = embedEl.getAttribute("src");
+    v.controls = true; v.loop = true; v.playsInline = true;
+    v.setAttribute("preload", "metadata");
+    frame.replaceChild(v, embedEl);
+  }
+})();
+</script>
+</body>
+</html>

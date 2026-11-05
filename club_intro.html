@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>社团活动介绍 | 萨克斯社“冬日之声”专场</title>
+<style>
+:root{
+  --ink:#0a0910;--ink-2:#11101a;--gold:#d9a441;--gold-l:#f2cd85;
+  --cream:#f4ece0;--muted:#a99f92;--line:rgba(217,164,65,.22);
+  --serif:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
+  --sans:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--cream);
+  font:16px/2.05 var(--sans);-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--gold-l);text-decoration:none}
+::selection{background:rgba(217,164,65,.32)}
+
+/* 顶部返回条 */
+.topbar{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:12px clamp(16px,4vw,40px);
+  background:rgba(10,9,16,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .mark{font-family:var(--serif);letter-spacing:.28em;font-size:14px;color:var(--gold)}
+.back-link{
+  display:inline-flex;align-items:center;gap:9px;padding:9px 20px;border-radius:999px;
+  border:1px solid rgba(217,164,65,.4);background:rgba(217,164,65,.08);
+  color:var(--gold-l);font-size:14px;letter-spacing:.08em;transition:.28s;
+}
+.back-link:hover{background:rgba(217,164,65,.2);color:#fff;transform:translateX(-3px)}
+
+/* 头部 */
+.hero{
+  position:relative;padding:clamp(60px,9vw,110px) clamp(18px,4vw,40px) clamp(40px,6vw,70px);
+  background:
+    radial-gradient(900px 420px at 20% 0%,rgba(217,164,65,.18),transparent 60%),
+    linear-gradient(180deg,rgba(10,9,16,.4),var(--ink) 92%),
+    url("sax_club.jpg") center 30%/cover no-repeat;
+  border-bottom:1px solid rgba(217,164,65,.14);
+}
+.hero .inner{max-width:900px;margin:0 auto}
+.kicker{font-size:12px;letter-spacing:.46em;text-indent:.46em;color:var(--gold);text-transform:uppercase}
+h1{
+  margin:20px 0 0;font-family:var(--serif);font-weight:700;
+  font-size:clamp(32px,6vw,60px);line-height:1.3;letter-spacing:.05em;
+  text-shadow:0 16px 50px rgba(0,0,0,.8);
+}
+.hero p{margin:22px 0 0;max-width:680px;color:rgba(244,236,224,.84);font-size:16px}
+
+/* 正文 */
+main{max-width:900px;margin:0 auto;padding:clamp(44px,7vw,80px) clamp(18px,4vw,32px) 40px}
+h2{
+  font-family:var(--serif);font-size:clamp(22px,3.4vw,30px);font-weight:700;
+  letter-spacing:.06em;color:var(--gold-l);margin:56px 0 18px;padding-bottom:12px;
+  border-bottom:1px solid rgba(217,164,65,.18);
+}
+h2:first-of-type{margin-top:0}
+h2 small{font-family:Georgia,serif;font-size:12px;letter-spacing:.3em;color:rgba(169,159,146,.7);margin-left:12px}
+p{color:rgba(244,236,224,.88);text-align:justify;margin:0 0 1.3em}
+strong{color:var(--gold-l);font-weight:600}
+
+/* 曲目单 */
+.program{list-style:none;padding:0;margin:26px 0 0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.program li{
+  display:flex;justify-content:space-between;gap:16px;padding:16px 22px;
+  border-bottom:1px solid rgba(217,164,65,.12);font-size:15.5px;
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.008));
+  transition:background .25s;
+}
+.program li:last-child{border-bottom:none}
+.program li:hover{background:rgba(217,164,65,.08)}
+.program li span{color:var(--muted);font-size:13.5px;letter-spacing:.06em;white-space:nowrap}
+
+/* 图片 */
+figure{margin:34px 0 0}
+figure img{border-radius:14px;border:1px solid var(--line);width:100%}
+figcaption{margin-top:12px;font-size:13px;color:var(--muted);text-align:center;letter-spacing:.04em}
+
+/* 信息卡 */
+.info{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;
+  margin:34px 0 0;background:rgba(217,164,65,.16);border:1px solid rgba(217,164,65,.16);
+  border-radius:14px;overflow:hidden;
+}
+.info div{background:var(--ink-2);padding:20px 22px}
+.info dt{font-size:12px;letter-spacing:.22em;color:var(--gold);margin-bottom:8px}
+.info dd{margin:0;font-size:15px;color:rgba(244,236,224,.9)}
+
+/* 底部按钮 */
+.actions{
+  display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+  margin:60px 0 10px;padding-top:34px;border-top:1px solid rgba(217,164,65,.18);
+}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:14px 34px;border-radius:999px;
+  font-size:15px;font-weight:600;letter-spacing:.1em;transition:.3s;border:1px solid transparent;
+}
+.btn-gold{color:#1a1206;background:linear-gradient(135deg,var(--gold-l),var(--gold));box-shadow:0 14px 34px -14px rgba(217,164,65,.8)}
+.btn-gold:hover{transform:translateY(-3px);color:#1a1206}
+.btn-ghost{color:var(--cream);border-color:rgba(244,236,224,.28)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-l);transform:translateY(-3px)}
+
+footer{
+  padding:44px 20px;text-align:center;border-top:1px solid rgba(217,164,65,.14);
+  font-size:12.5px;color:rgba(169,159,146,.7);letter-spacing:.04em;line-height:2;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="mark">萨克斯社 · SAX</span>
+  <a class="back-link" href="zhang-0314-work2.html">← 返回萨克斯社招新网页</a>
+</div>
+
+<div class="hero">
+  <div class="inner">
+    <span class="kicker">Activity Report 2026</span>
+    <h1>“冬日之声”专场音乐会<br>暨社团活动介绍</h1>
+    <p>
+      2025 年 12 月 21 日，萨克斯社在学生活动中心音乐厅完成了本年度的最后一场演出。
+      这篇页面记录了那晚的曲目、台上的四个声部，以及一场演出背后那些没有写在海报上的事。
+    </p>
+  </div>
+</div>
+
+<main>
+  <h2>一场演出是怎么被"做"出来的<small>HOW WE MADE IT</small></h2>
+  <p>
+    “冬日之声”是萨克斯社每年冬天的固定专场，从 2016 年开始，到今年已经是第九届。
+    和春季那场偏向爵士即兴的“金色号角”不同，冬专更看重“好听”——我们把大量的流行与影视配乐重新配器，
+    让四个声部像四把不同的嗓子，一起讲一个温暖的故事。
+  </p>
+  <p>
+    筹备从十月中旬就开始了。第一周确定曲目，第二周声部长开始写谱，第三周进入分声部练习，
+    十一月中旬开始全团合排。今年的难点是《Libertango》——原曲的速度变化极多，
+    四个声部只要有一个人的呼吸早了半拍，整段就会散掉。为此我们在排练厅的地板上贴了胶带做标记，
+    把每一段的进入点标出来，反复练了整整六周。
+  </p>
+  <p>
+    演出前一晚的彩排，灯光师把面光调得太亮，站在最左边的同学几乎看不清谱子。
+    最后是社里的乐务跑回宿舍，拿了一盏台灯放在谱架后面——那盏台灯，后来成了那晚照片里最温柔的一处光。
+  </p>
+
+  <h2>当晚曲目单<small>PROGRAM</small></h2>
+  <ul class="program">
+    <li>《Autumn Leaves》<span>开场 · 四重奏</span></li>
+    <li>《Blue Bossa》<span>Bossa Nova · 中音二重奏</span></li>
+    <li>《Libertango》<span>皮亚佐拉 · 全团改编</span></li>
+    <li>《月亮代表我的心》<span>全场大合唱</span></li>
+    <li>《What a Wonderful World》<span>返场 · 次中音独奏</span></li>
+  </ul>
+
+  <figure>
+    <img src="sax_club.jpg" alt="萨克斯社“冬日之声”专场音乐会现场，四位社员在舞台灯光下演奏">
+    <figcaption>“冬日之声”专场现场 · 学生活动中心音乐厅 · 2025.12.21</figcaption>
+  </figure>
+
+  <h2>活动信息<small>DETAILS</small></h2>
+  <dl class="info">
+    <div><dt>活动名称</dt><dd>“冬日之声”萨克斯专场音乐会</dd></div>
+    <div><dt>时间</dt><dd>2025 年 12 月 21 日 19:30</dd></div>
+    <div><dt>地点</dt><dd>学生活动中心 音乐厅 A-201</dd></div>
+    <div><dt>参演</dt><dd>社员 18 人 · 四个声部</dd></div>
+    <div><dt>观众</dt><dd>约 260 人</dd></div>
+    <div><dt>曲目</dt><dd>5 首 · 含 1 首返场</dd></div>
+  </dl>
+
+  <h2>下一次，台上可能就是你<small>NEXT</small></h2>
+  <p>
+    每年冬天，我们都会在新社员里挑几位第一次登台的同学，把他们安排在声部中间的位置——
+    这样即使紧张，旁边也总有人接着。今年那两位第一次上台的同学，一个吹中音，一个吹次中音，
+    演出结束后在后台抱在一起哭了很久。
+  </p>
+  <p>
+    如果你也想在某个冬天的晚上，站在那束光里吹完一首完整的曲子，
+    欢迎回到招新主页填写报名表。我们不要求你现在就会，只要求你愿意开始。
+  </p>
+
+  <div class="actions">
+    <a class="btn btn-gold" href="zhang-0314-work2.html#signup">我要报名</a>
+    <a class="btn btn-ghost" href="zhang-0314-work2.html">← 返回萨克斯社招新网页</a>
+  </div>
+</main>
+
+<footer>
+  校园萨克斯社 · 学生活动中心三楼 · 每周三 / 周日晚排练<br>
+  © 2026 萨克斯社 · 网页设计课程作业（work2 配套页面）
+</footer>
+
+</body>
+</html>
